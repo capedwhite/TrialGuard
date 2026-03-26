@@ -1,5 +1,6 @@
 const db = require('../config/database');
-const redis = require('../config/redis');
+const { redis } = require('../config/redis');
+
 
 // ── Cache key helper ──────────────────────────────────────────────
 // Centralised so the key format never drifts between get/invalidate.
