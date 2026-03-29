@@ -1,9 +1,10 @@
 const validate = (schema) => (req, res, next) => {
+console.log("validate request body:", req.body);
   const result = schema.safeParse(req.body);
 
   if (!result.success) {
     // Zod gives us detailed field-level errors — format them cleanly
-    const errors = result.error.errors.map((e) => ({
+    const errors = result.error?.errors?.map((e) => ({
       field: e.path.join('.'),
       message: e.message,
     }));
